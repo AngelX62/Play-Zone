@@ -1,39 +1,4 @@
-package Game;
-
-import java.util.Random;
-import java.text.DecimalFormat;
-public class PrizeRps {
-    
-    Random randomNum = new Random();
-    DecimalFormat formatter = new DecimalFormat("#0.00");
-   
-    // We set this to public for the attributes
-    String type;
-    double weight = randomNum.nextDouble(100) + 1;
-    private double winMoney = randomNum.nextDouble(500.0) + 1.0;
-
-    // Parameterized constructor for randomPrize objects
-    PrizeRps(String type) {
-        this.type = type;
-    }
-
-    public void winPrize() {
-        System.out.println("The prize weigh's " + formatter.format(this.weight) + " kg!");
-    }
-    
-    public void enginePart() {
-        System.out.println("You have won an exhaust part!");
-    }
-
-    public void ticket() {
-        System.out.println("You have won a ticket to Hawaii!");
-    }
-
-    public double winCash() {
-        return winMoney;
-    }
-}
-   
+  
     // constructor with desired attributes (parameters)
 
     // this keyword: to specify to java that we are referring to the field on the object that this method was called on

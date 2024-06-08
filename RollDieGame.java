@@ -1,6 +1,5 @@
 package Game;
 import java.util.Random;
-import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -9,9 +8,9 @@ public class RollDieGame extends GameProperties {
     Random random = new Random();
     Scanner keyboard = new Scanner(System.in);
     
-    private int prizeNumber, rounds, playerRoll; 
+    private int userChoice, cpuChoice;
+    private int rounds, playerRoll; 
     private int userScore, cpuScore;
-    private DecimalFormat formatter = new DecimalFormat("#0.00");
     
     RollDieGame(){}
     
@@ -44,6 +43,21 @@ public class RollDieGame extends GameProperties {
 
     public void setCpuScore(int cpuScore) {
         this.cpuScore = cpuScore;
+    }
+    public void setUserChoice(int userChoice) {
+        this.userChoice = userChoice;
+    }
+
+    public int getUserChoice() {
+        return this.userChoice;
+    }
+
+    public void setCpuChoice(int cpuChoice) {
+        this.cpuChoice = cpuChoice;
+    }
+    
+    public int getCpuChoice() {
+        return this.cpuChoice;
     }
 
     public void dieGame() {
@@ -101,23 +115,6 @@ public class RollDieGame extends GameProperties {
              * Creates object from PrizeRps
             */
 
-            /* 
-            PrizeRps randomPrize = new PrizeRps("Fluffy");
-
-            // Wins an engine part 
-            if (die.getPrizeNumber() < 50) {
-                randomPrize.winPrize();
-                randomPrize.enginePart();
-            
-            // Wins ticket
-            } else if(die.getPrizeNumber() >=50 && die.getPrizeNumber() <= 70) {
-                randomPrize.ticket();
-            // Wins cash    
-            } else{
-                System.out.println("You have won $" 
-                + formatter.format(randomPrize.winCash()) + "!");  
-            } */
-
         // Prints lose statment
         } else if(die.getCpuScore() > die.getUserScore()) {
             // lose method from game class
@@ -141,29 +138,4 @@ public class RollDieGame extends GameProperties {
         
         return convertArrayScore;
     }
-/* 
-    public void win() {
-        // super keyword calls on the parent class, win method. 
-        // Can also be win();
-        super.win();
-        
-        boolean validInput = false;
-        
-        while(!validInput) {
-            try {
-                System.out.println("Enter a random prizeNumber 1-100");
-                prizeNumber = keyboard.nextInt();
-
-                if (prizeNumber < 1 || prizeNumber > 100) {
-                    throw new IllegalArgumentException("Input must be an integer and within range");
-                } 
-                // If input is valid, break from loop
-                validInput = true;
-           
-            } catch(InputMismatchException | IllegalArgumentException error) {
-                System.out.println(error.getMessage());
-                keyboard.nextLine();
-            }
-        }
-    } */
 }

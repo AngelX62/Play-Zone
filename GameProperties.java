@@ -3,7 +3,6 @@ package Game;
 
 // Parent class (Heirarchical inheritance)
 public  abstract class GameProperties implements GameFeedback {
-    private int prizeNumber, userChoice, cpuChoice;
     private String mode;
     private static String gameSelect;
 
@@ -38,24 +37,4 @@ public  abstract class GameProperties implements GameFeedback {
     public void tie() {
         System.out.println("It is a tie!");
     }
-
-    public void setUserChoice(int userChoice) {
-        this.userChoice = userChoice;
-    }
-
-    public int getUserChoice() {
-        return this.userChoice;
-    }
-
-    public void setCpuChoice(int cpuChoice) {
-        this.cpuChoice = cpuChoice;
-    }
-    
-    public int getCpuChoice() {
-        return this.cpuChoice;
-    }
-    // We do not need a setter, number variable name is already declared
-    public int getPrizeNumber() {
-        return this.prizeNumber;
-    } 
 }
