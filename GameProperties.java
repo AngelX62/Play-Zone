@@ -27,14 +27,14 @@ public  abstract class GameProperties implements GameFeedback {
     } 
     
     public void win() {
-        System.out.println("You win!");
+        System.out.println("Result: You win!");
     }
 
     public void lose() {
-        System.out.println("You lose!");
+        System.out.println("Result: You lose!");
     }
 
     public void tie() {
-        System.out.println("It is a tie!");
+        System.out.println("Result: It is a tie!");
     }
 }
