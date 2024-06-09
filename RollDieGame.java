@@ -2,7 +2,6 @@ package Game;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 
 public class RollDieGame extends GameProperties {
     Random random = new Random();
@@ -75,24 +74,24 @@ public class RollDieGame extends GameProperties {
             do {
                 System.out.print("Enter your roll (1-6): ");
                 try {
-                    playerRoll = keyboard.nextInt();
+                    die.setUserChoice(keyboard.nextInt());
             
-                    if (playerRoll < 0 || playerRoll > 6) {
+                    if (die.getUserChoice() < 0 || die.getUserChoice() > 6) {
                         throw new IllegalArgumentException("Only positive numbers & no number greater than 6");
                     }
                 } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                 }
 
-            } while (playerRoll < 0 || playerRoll > 6);
+            } while (die.getUserChoice() < 0 || die.getUserChoice() > 6);
 
-            System.out.println("You rolled a " + playerRoll);
+            System.out.println("You rolled a " + die.getUserChoice());
 
             // Generate random numbers from 1-6
             die.setCpuChoice(random.nextInt(6) + 1);
 
             System.out.println("AI is rolling die...");
-            
+
             //ensure one thread can access the object at a time
             synchronized (lock) {
                 try {
@@ -106,14 +105,14 @@ public class RollDieGame extends GameProperties {
              // Storing the scores from user and cpu
             if(die.getUserChoice() < die.getCpuChoice()) {
                 die.setCpuScore(cpuScore++);
-                System.out.println("Points go to user");
+                System.out.println("Points go to AI");
                 
             } else if(die.getUserChoice() > die.getCpuChoice()) {
                 die.setUserScore(userScore++);
-                System.out.println("Points go to AI");
+                System.out.println("Points go to User");
                 
             } else if(die.getUserChoice() == die.getCpuChoice()) {
-                System.out.println("Result: Tied, no points given to both parties");
+                System.out.println("Tied, no points given to both parties");
             }
         }
 
