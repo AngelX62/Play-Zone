@@ -70,12 +70,29 @@ public class RollDieGame extends GameProperties {
 
         for(int i = 1; i <= rounds; i++) {
             // User and Cpu choice is Inherited from game.java because the methods are public
+            // User enters a number from 1-6
+            //System.out.print("Enter your roll (1-6): ");
+            do {
+                System.out.print("Enter your roll (1-6): ");
+                try {
+                    playerRoll = keyboard.nextInt();
             
-            // Generate random numbers from 1-6
-            System.out.print("Enter your roll (1-6): ");
-            playerRoll = keyboard.nextInt();
+                    if (playerRoll < 0 || playerRoll > 6) {
+                        throw new IllegalArgumentException("Only positive numbers & no number greater than 6");
+                    }
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
 
+            } while (playerRoll < 0 || playerRoll > 6);
+
+            System.out.println("You rolled a " + playerRoll);
+
+            // Generate random numbers from 1-6
             die.setCpuChoice(random.nextInt(6) + 1);
+
+            System.out.println("AI is rolling die...");
+            
             //ensure one thread can access the object at a time
             synchronized (lock) {
                 try {
@@ -85,7 +102,7 @@ public class RollDieGame extends GameProperties {
                 }
             } 
 
-            System.out.println("AI is rolling die...");
+            System.out.println("Rolled a " + die.getCpuChoice());
              // Storing the scores from user and cpu
             if(die.getUserChoice() < die.getCpuChoice()) {
                 die.setCpuScore(cpuScore++);
