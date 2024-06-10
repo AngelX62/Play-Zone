@@ -90,7 +90,7 @@ public class GameMain {
         ArrayList<Integer> totalScore = new ArrayList<>();
         
         totalScore.add(die.getUserScore()); // Add user score to totalScore list
-        totalScore.add(die.getCpuScore()); // Add CPU score to totalScore list
+        totalScore.add(die.getAiScore()); // Add CPU score to totalScore list
     
         return totalScore;
     }
