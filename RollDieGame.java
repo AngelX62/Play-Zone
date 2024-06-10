@@ -90,7 +90,7 @@ public class RollDieGame extends GameProperties {
             // Generate random numbers from 1-6
             die.setAiChoice(random.nextInt(6) + 1);
 
-            System.out.println("AI is rolling die...");
+            System.out.println("\nAI is rolling die...");
 
             //ensure one thread can access the object at a time
             synchronized (lock) {
@@ -101,7 +101,7 @@ public class RollDieGame extends GameProperties {
                 }
             } 
 
-            System.out.println("Rolled a " + die.getAiChoice());
+            System.out.println("AI Rolled a " + die.getAiChoice() + "\n");
              // Storing the scores from user and Ai
             if(die.getUserChoice() < die.getAiChoice()) {
                 die.setAiScore(AiScore++);
