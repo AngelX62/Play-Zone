@@ -7,9 +7,9 @@ public class RollDieGame extends GameProperties {
     Random random = new Random();
     Scanner keyboard = new Scanner(System.in);
     
-    private int userChoice, cpuChoice;
+    private int userChoice, AiChoice;
     private int rounds, playerRoll; 
-    private int userScore, cpuScore;
+    private int userScore, AiScore;
     
     RollDieGame(){}
     
@@ -36,12 +36,12 @@ public class RollDieGame extends GameProperties {
         this.userScore = userScore;
     }
 
-    public int getCpuScore() {
-        return this.cpuScore;
+    public int getAiScore() {
+        return this.AiScore;
     }
 
-    public void setCpuScore(int cpuScore) {
-        this.cpuScore = cpuScore;
+    public void setAiScore(int AiScore) {
+        this.AiScore = AiScore;
     }
     public void setUserChoice(int userChoice) {
         this.userChoice = userChoice;
@@ -51,12 +51,12 @@ public class RollDieGame extends GameProperties {
         return this.userChoice;
     }
 
-    public void setCpuChoice(int cpuChoice) {
-        this.cpuChoice = cpuChoice;
+    public void setAiChoice(int AiChoice) {
+        this.AiChoice = AiChoice;
     }
     
-    public int getCpuChoice() {
-        return this.cpuChoice;
+    public int getAiChoice() {
+        return this.AiChoice;
     }
 
     public void dieGame() {
@@ -68,7 +68,7 @@ public class RollDieGame extends GameProperties {
         rounds = keyboard.nextInt();
 
         for(int i = 1; i <= rounds; i++) {
-            // User and Cpu choice is Inherited from game.java because the methods are public
+            // User and Ai choice is Inherited from game.java because the methods are public
             // User enters a number from 1-6
             //System.out.print("Enter your roll (1-6): ");
             do {
@@ -88,7 +88,7 @@ public class RollDieGame extends GameProperties {
             System.out.println("You rolled a " + die.getUserChoice());
 
             // Generate random numbers from 1-6
-            die.setCpuChoice(random.nextInt(6) + 1);
+            die.setAiChoice(random.nextInt(6) + 1);
 
             System.out.println("AI is rolling die...");
 
@@ -101,25 +101,25 @@ public class RollDieGame extends GameProperties {
                 }
             } 
 
-            System.out.println("Rolled a " + die.getCpuChoice());
-             // Storing the scores from user and cpu
-            if(die.getUserChoice() < die.getCpuChoice()) {
-                die.setCpuScore(cpuScore++);
+            System.out.println("Rolled a " + die.getAiChoice());
+             // Storing the scores from user and Ai
+            if(die.getUserChoice() < die.getAiChoice()) {
+                die.setAiScore(AiScore++);
                 System.out.println("Points go to AI");
                 
-            } else if(die.getUserChoice() > die.getCpuChoice()) {
+            } else if(die.getUserChoice() > die.getAiChoice()) {
                 die.setUserScore(userScore++);
                 System.out.println("Points go to User");
                 
-            } else if(die.getUserChoice() == die.getCpuChoice()) {
+            } else if(die.getUserChoice() == die.getAiChoice()) {
                 System.out.println("Tied, no points given to both parties");
             }
         }
 
          // Prints the final score    
-        System.out.printf("User score: %d\nCPU Score: %d\n", userScore, cpuScore);
+        System.out.printf("User score: %d\nAi Score: %d\n", userScore, AiScore);
 
-        if (die.getUserScore() > die.getCpuScore()) {
+        if (die.getUserScore() > die.getAiScore()) {
             System.out.println();
             // When user wins, asks for prizeNumber
             die.win();
@@ -132,7 +132,7 @@ public class RollDieGame extends GameProperties {
             */
 
         // Prints lose statment
-        } else if(die.getCpuScore() > die.getUserScore()) {
+        } else if(die.getAiScore() > die.getUserScore()) {
             // lose method from game class
             die.lose();
         
@@ -147,7 +147,7 @@ public class RollDieGame extends GameProperties {
         ArrayList<Integer> scores = new ArrayList<Integer>();
         // Uses .add() method and stores the score in the list
         scores.add(userScore);
-        scores.add(cpuScore);
+        scores.add(AiScore);
     
         // Converted arraylist to array
         int[] convertArrayScore = new int[scores.size()];
