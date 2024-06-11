@@ -2,22 +2,26 @@ package Game;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public class GameMain {
     public static Scanner scan = new Scanner(System.in);
-    /* Notes:
-     * Why is passing arguments to a constructor useful?
-     * To create different objects with different attributes
-     * 
-     * A constructor is a block of code similar to the method. It is called when an instance of the class is created
-     * It is used to initialize an object
-     * Every time a new object is created with the new() keyword, one constructor is called
-     */
 
      public static void main(String[] args) {
-        //Scanner scan = new Scanner(System.in);
+        JFrame frame = new JFrame();
+        frame.setTitle("PlayZone");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setSize(600, 600);
+        frame.setVisible(true);
+        // Create image icon
+        ImageIcon image = new ImageIcon("Java\\Game\\Playzone_logo.png");
+        frame.setIconImage(image.getImage());
 
+        frame.getContentPane().setBackground(new Color(123,50,250));
         // Creates gameType object to input complex or simple
         GameProperties gameType = null;
         
