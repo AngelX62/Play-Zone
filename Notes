@@ -1,9 +1,15 @@
   
-    // constructor with desired attributes (parameters)
+constructor with desired attributes (parameters)
 
-    // this keyword: to specify to java that we are referring to the field on the object that this method was called on
-    /* this refers to the randomPrize object.  
-     * For example, take the randomPrize object and set its name to the value of the type variable being passed in
-     * You can use this in any non-static methods and constructors
-     * this can also be used to call a constructor
-    */
+this keyword: to specify to java that we are referring to the field on the object that this method was called on
+this refers to the randomPrize object.  
+For example, take the randomPrize object and set its name to the value of the type variable being passed in
+You can use this in any non-static methods and constructors
+this can also be used to call a constructor
+
+
+Why is passing arguments to a constructor useful?
+To create different objects with different attributes
+A constructor is a block of code similar to the method. It is called when an instance of the class is created
+It is used to initialize an object
+Every time a new object is created with the new() keyword, one constructor is called
