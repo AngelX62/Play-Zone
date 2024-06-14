@@ -25,7 +25,7 @@ This file contains the implementation of the Roll-Die game. It includes the game
 This file contains development notes, potential improvements, and other relevant information regarding the project.
 
 ## Setup
-###Prerequisites
+### Prerequisites
 - Java Development Kit (JDK) installed
 - A Java IDE or text editor (e.g., IntelliJ IDEA, Eclipse, VSCode)
 
