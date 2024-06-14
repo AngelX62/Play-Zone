@@ -1,8 +1,8 @@
 # Playzone Project
 
-### Playzone is a collection of Java-based games and utilities for game development. Each game is designed to be smple yet educational and demonstrating core programming principles. The project includes:
+Playzone is a collection of Java-based games and utilities for game development. Each game is designed to be smple yet educational and demonstrating core programming principles. The project includes:
 - Rock-Paper-Scissors game
-- ROll-Die game
+- Roll-Die game
 - Game properties and feedback handling
 
 ## Files
