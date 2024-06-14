@@ -2,26 +2,12 @@ package Game;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.awt.Color;
 import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-
 public class GameMain {
     public static Scanner scan = new Scanner(System.in);
 
      public static void main(String[] args) {
-        JFrame frame = new JFrame();
-        frame.setTitle("PlayZone");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.setSize(600, 600);
-        frame.setVisible(true);
-        // Create image icon
-        ImageIcon image = new ImageIcon("Java\\Game\\Playzone_logo.png");
-        frame.setIconImage(image.getImage());
-
-        frame.getContentPane().setBackground(new Color(123,50,250));
+        
         // Creates gameType object to input complex or simple
         GameProperties gameType = null;
         
